@@ -35,8 +35,6 @@ def cluster_plot(cluster):
 
     ax.set(yticks=data.years, xticks=[], xlabel='Position', ylabel='Year')
     ax.legend(loc='upper right')
-    ax.set_ylim([-0.5, 8.5])
-    ax.invert_yaxis()
 
     return fig, ax, linear_position
 
@@ -51,6 +49,9 @@ def plot_products(ax, products, reproject):
             x.extend([x0, x0, x0])
             y.extend([year - 0.25, year, year + 0.25])
         ax.plot(x, y, color='gray', lw=2)
+
+    ax.set_ylim([-0.5, 8.5])
+    ax.invert_yaxis()
 
 def position_factory(keys):
     """
