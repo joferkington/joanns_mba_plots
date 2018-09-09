@@ -66,9 +66,10 @@ def position_factory(keys):
     cluster = np.vstack(cluster)
     vals, vecs = np.linalg.eigh(np.cov(cluster.T))
     _idx = np.argmax(vals)
+    direc = -1 if vecs[0,1] < 0 else 1
 
     def linear_position(x, y):
-        return -vecs.dot([[x], [y]])[_idx][0]
+        return direc * vecs.dot([[x], [y]])[_idx][0]
 
     return linear_position
 
