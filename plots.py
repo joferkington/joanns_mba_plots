@@ -43,11 +43,11 @@ def cluster_plot(cluster):
 def plot_products(ax, products, reproject):
     names = sorted(set([x.rstrip('XY ') for x in products.columns]))
     for name in names:
-        rawx = products[name + ' X'].dropna()
-        rawy = products[name + ' Y'].dropna()
+        cols = [name + ' X', name + ' Y']
+        data = products[cols].dropna()
         x, y = [], []
-        for year, pos in enumerate(zip(rawx.values, rawy.values)):
-            x0 = reproject(*pos)
+        for year, xy in data.iterrows():
+            x0 = reproject(*xy)
             x.extend([x0, x0, x0])
             y.extend([year - 0.25, year, year + 0.25])
         ax.plot(x, y, color='gray', lw=2)
