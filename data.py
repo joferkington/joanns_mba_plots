@@ -12,24 +12,24 @@ keys = ['Traditional', 'Low End', 'High End', 'Performance', 'Size']
 colors = dict(zip(keys, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']))
 
 _across = np.ones(len(years))
-products = pd.DataFrame({'Low End Starting X': 2.3 * _across,
-                         'Low End Starting Y': 17.8 * _across,
-                         'Traditional Starting X': 4.8 * _across,
-                         'Traditional Starting Y': 15.3 * _across,
-                         'High End Starting X': 7.3 * _across,
-                         'High End Starting Y': 12.8 * _across,
-                         'Performance Starting X': 8.7 * _across,
-                         'Performance Starting Y': 16.3 * _across,
-                         'Size Starting X': 3.3 * _across,
-                         'Size Starting Y': 11.8 * _across})
+products = pd.DataFrame({'Bead X': 2.3 * _across,
+                         'Bead Y': 17.8 * _across,
+                         'Baker X': 4.8 * _across,
+                         'Baker Y': 15.3 * _across,
+                         'Bid X': 7.3 * _across,
+                         'Bid Y': 12.8 * _across,
+                         'Bold X': 8.7 * _across,
+                         'Bold Y': 16.3 * _across,
+                         'Buddy X': 3.3 * _across,
+                         'Buddy Y': 11.8 * _across})
 products.index.name = 'Year'
 
-center_keys = ['Low End', 'Traditional', 'High End']
-_ix = [['%s Starting X' % key, '%s Starting Y' % key] for key in center_keys]
+center_keys = ['Bead', 'Baker', 'Bid']
+_ix = [['%s X' % key, '%s Y' % key] for key in center_keys]
 center_products = products[sum(_ix, [])]
-size_products = products[['Size Starting X', 'Size Starting Y']]
-performance_products = products[['Performance Starting X', 
-                                 'Performance Starting Y']]
+size_products = products[['Bold X', 'Bold Y']]
+performance_products = products[['Buddy X', 
+                                 'Buddy Y']]
 
 def edit_product(product):
     import qgrid

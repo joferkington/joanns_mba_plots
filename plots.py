@@ -48,9 +48,11 @@ def plot_products(ax, products, reproject):
             x0 = reproject(*xy)
             x.extend([x0, x0, x0])
             y.extend([year - 0.25, year, year + 0.25])
+        ax.annotate(name, xy=(x[0], -0.25), xytext=(0, 5), xycoords='data', 
+                    textcoords='offset points', ha='center', va='bottom')
         ax.plot(x, y, color='gray', lw=2)
 
-    ax.set_ylim([-0.5, 8.5])
+    ax.set_ylim([-.7, 8.5])
     ax.invert_yaxis()
 
 def position_factory(keys):
