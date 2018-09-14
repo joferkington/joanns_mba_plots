@@ -27,9 +27,8 @@ products.index.name = 'Year'
 center_keys = ['Bead', 'Baker', 'Bid']
 _ix = [['%s X' % key, '%s Y' % key] for key in center_keys]
 center_products = products[sum(_ix, [])]
-size_products = products[['Bold X', 'Bold Y']]
-performance_products = products[['Buddy X', 
-                                 'Buddy Y']]
+performance_products = products[['Bold X', 'Bold Y']]
+size_products = products[['Buddy X', 'Buddy Y']]
 
 def edit_product(product):
     import qgrid
